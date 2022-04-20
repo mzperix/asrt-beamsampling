@@ -1,0 +1,1081 @@
+'
+'
+'
+'	D:\Dropbox\Experiments and Projects\RECENT\clinical_brain\tDCS_alvas_EXPLICT\Tests\ASRT_2_alkalom_Explicit teszt\explicit_teszt.ebs
+'	Generated on: 10/1/2014	15:32:36
+'
+'
+'	This file generated with E-Studio interface.
+'	E-Prime Copyright © 1996-2005 Psychology Software Tools.
+'	ALL RIGHTS RESERVED
+'
+'	Legal use of this experiment script requires a full E-Prime or Runtime License.
+'
+'
+'	Author:
+'		Karolina Janacsek (ELTE Budapest)
+'
+'
+'
+'
+
+Option CStrings On
+Dim ebContext as Context
+
+
+'--------------------------------------------------------------------------
+' Class Declarations
+'--------------------------------------------------------------------------
+
+
+
+'--------------------------------------------------------------------------
+'InitTextDisplayDefaults
+'--------------------------------------------------------------------------
+Sub InitTextDisplayDefaults(theTextDisplay As TextDisplay)
+
+	If theTextDisplay Is Nothing Then Exit Sub
+
+	theTextDisplay.X = "center"
+	theTextDisplay.Y = "center"
+	theTextDisplay.Width = "100%"
+	theTextDisplay.Height = "100%"
+	theTextDisplay.ForeColor = CColor("black")
+	theTextDisplay.BackColor = CColor("white")
+	theTextDisplay.BackStyle = "opaque"
+	theTextDisplay.BorderColor = CColor("black")
+	theTextDisplay.BorderWidth = CLng("0")
+	theTextDisplay.XAlign = "center"
+	theTextDisplay.YAlign = "center"
+	theTextDisplay.AlignHorizontal = "center"
+	theTextDisplay.AlignVertical = "center"
+	theTextDisplay.WordWrap = True
+	theTextDisplay.ClearAfter = CLogical("No")
+	theTextDisplay.FontName = "Courier New"
+	theTextDisplay.FontSize = "18"
+	theTextDisplay.FontBold = CLogical("Yes")
+	theTextDisplay.FontItalic = CLogical("No")
+	theTextDisplay.FontUnderline = CLogical("No")
+	theTextDisplay.FontStrikeout = CLogical("No")
+
+End Sub
+
+
+
+
+
+
+'--------------------------------------------------------------------------
+'InitSlideStateDefaults
+'--------------------------------------------------------------------------
+Sub InitSlideStateDefaults(theSlideState As SlideState)
+
+	If theSlideState Is Nothing Then Exit Sub
+
+	theSlideState.X = "center"
+	theSlideState.Y = "center"
+	theSlideState.Width = "100%"
+	theSlideState.Height = "100%"
+	theSlideState.BackColor = CColor("white")
+	theSlideState.BackStyle = "opaque"
+	theSlideState.BorderColor = CColor("black")
+	theSlideState.BorderWidth = CLng("0")
+	theSlideState.XAlign = "center"
+	theSlideState.YAlign = "center"
+	theSlideState.ClearAfter = CLogical("No")
+	theSlideState.Enabled = CLogical("Yes")
+
+End Sub
+
+'--------------------------------------------------------------------------
+'InitSlideVisualStimDefaults
+'--------------------------------------------------------------------------
+Sub InitSlideVisualStimDefaults(theSlideVisualStim As SlideVisualStim)
+
+	If theSlideVisualStim Is Nothing Then Exit Sub
+
+	theSlideVisualStim.X = "center"
+	theSlideVisualStim.Y = "center"
+	theSlideVisualStim.Width = "25%"
+	theSlideVisualStim.Height = "25%"
+	theSlideVisualStim.ForeColor = CColor("black")
+	theSlideVisualStim.BackColor = CColor("white")
+	theSlideVisualStim.BackStyle = "opaque"
+	theSlideVisualStim.BorderColor = CColor("black")
+	theSlideVisualStim.BorderWidth = CLng("0")
+	theSlideVisualStim.XAlign = "center"
+	theSlideVisualStim.YAlign = "center"
+	theSlideVisualStim.AlignHorizontal = "center"
+	theSlideVisualStim.AlignVertical = "center"
+
+End Sub
+
+'--------------------------------------------------------------------------
+'InitSlideTextDefaults
+'--------------------------------------------------------------------------
+Sub InitSlideTextDefaults(theSlideText As SlideText)
+
+	If theSlideText Is Nothing Then Exit Sub
+
+	InitSlideVisualStimDefaults theSlideText
+
+	theSlideText.WordWrap = True
+	theSlideText.FontName = "Courier New"
+	theSlideText.FontSize = "18"
+	theSlideText.FontBold = CLogical("Yes")
+	theSlideText.FontItalic = CLogical("No")
+	theSlideText.FontUnderline = CLogical("No")
+	theSlideText.FontStrikeout = CLogical("No")
+
+End Sub
+
+'--------------------------------------------------------------------------
+'InitSlideImageDefaults
+'--------------------------------------------------------------------------
+Sub InitSlideImageDefaults(theSlideImage As SlideImage)
+
+	If theSlideImage Is Nothing Then Exit Sub
+
+	InitSlideVisualStimDefaults theSlideImage
+
+	theSlideImage.Stretch = CLogical("No")
+	theSlideImage.MirrorLeftRight = CLogical("No")
+	theSlideImage.MirrorUpDown = CLogical("No")
+	theSlideImage.UseSourceColorKey = CLogical("No")
+	theSlideImage.SourceColorKey = CColor("black")
+
+End Sub
+
+'--------------------------------------------------------------------------
+'InitSlideSoundBufferDefaults
+'--------------------------------------------------------------------------
+Sub InitSlideSoundBufferDefaults(theSoundBuffer As SoundBuffer)
+
+	If theSoundBuffer Is Nothing Then Exit Sub
+
+	theSoundBuffer.Loop = CLogical("No")
+	theSoundBuffer.StopAfter = CLogical("Yes")
+	theSoundBuffer.StartOffset = "0"
+	theSoundBuffer.StopOffset = "0"
+
+End Sub
+
+
+
+
+
+
+
+'--------------------------------------------------------------------------
+' Instance Declarations
+'--------------------------------------------------------------------------
+Dim Display As DisplayDevice
+Dim DisplayEchoClients As DisplayDeviceEchoClientManager
+Dim DisplayEchoClient As DisplayDeviceEchoClient
+Dim Sound As SoundDevice
+Dim Keyboard As KeyboardDevice
+Dim Mouse As MouseDevice
+Dim SessionProc As Procedure
+
+Dim InclInstr As TextDisplay
+Dim InclInstrEchoClients As EchoClientCollection
+
+Dim ExpEnd As TextDisplay
+
+Dim Inclusion As List
+
+Dim Exclusion As List
+
+Dim TrialProc As Procedure
+
+Dim Task As Slide
+Dim TaskEchoClients As EchoClientCollection
+Dim Task_State As SlideState
+Dim Task_SlideText As SlideText
+
+Dim blockEnd As TextDisplay
+Dim blockEndEchoClients As EchoClientCollection
+
+Dim ExclInstr As Slide
+Dim ExclInstrEchoClients As EchoClientCollection
+Dim ExclInstr_State As SlideState
+Dim ExclInstr_SlideText As SlideText
+
+Dim TextDisplay1 As TextDisplay
+Dim TextDisplay1EchoClients As EchoClientCollection
+
+
+
+'--------------------------------------------------------------------------
+' Package Declare Script
+'--------------------------------------------------------------------------
+
+
+
+'--------------------------------------------------------------------------
+' User Script
+'--------------------------------------------------------------------------
+
+
+
+'--------------------------------------------------------------------------
+' Package Global Script
+'--------------------------------------------------------------------------
+
+
+
+'--------------------------------------------------------------------------
+' Package Routines
+'--------------------------------------------------------------------------
+
+
+
+'--------------------------------------------------------------------------
+' Implementation
+'--------------------------------------------------------------------------
+Sub SessionProc_Run(c as Context)
+	
+	
+	InclInstr.InputMasks.Reset
+	
+	If Keyboard.GetState() = ebStateOpen Then
+		InclInstrEchoClients.RemoveAll
+		InclInstr.InputMasks.Add Keyboard.CreateInputMask("{ANY}", "", CLng(InclInstr.Duration), CLng("1"), ebEndResponseActionTerminate, CLogical("Yes"), "", "", "ResponseMode:All ProcessBackspace:Yes")
+
+	
+	End If
+
+	InclInstr.Run
+	Inclusion.Run c
+	
+	
+	TextDisplay1.InputMasks.Reset
+	
+	If Keyboard.GetState() = ebStateOpen Then
+		TextDisplay1EchoClients.RemoveAll
+		TextDisplay1.InputMasks.Add Keyboard.CreateInputMask("{SPACE}", "", CLng(TextDisplay1.Duration), CLng("1"), ebEndResponseActionTerminate, CLogical("Yes"), "", "", "ResponseMode:All ProcessBackspace:Yes")
+
+	
+	End If
+
+	TextDisplay1.Run
+	
+	
+	Select Case ExclInstr.ActiveState
+		Case "Default"
+
+
+			Set ExclInstr_SlideText = CSlideText(ExclInstr.States.Item("Default").Objects(1))
+			Set ExclInstr_SlideText = Nothing
+
+			Set ExclInstr_SlideText = CSlideText(ExclInstr.States.Item("Default").Objects(2))
+			Set ExclInstr_SlideText = Nothing
+	End Select
+
+	
+	ExclInstr.InputMasks.Reset
+	
+	If Keyboard.GetState() = ebStateOpen Then
+		ExclInstrEchoClients.RemoveAll
+		ExclInstr.InputMasks.Add Keyboard.CreateInputMask("{ANY}", "", CLng(ExclInstr.Duration), CLng("1"), ebEndResponseActionTerminate, CLogical("Yes"), "", "", "ResponseMode:All ProcessBackspace:Yes")
+
+	
+	End If
+
+	ExclInstr.Run
+	
+	Exclusion.Run c
+	
+	ExpEnd.Run
+
+	 
+
+
+#If RUNTIME_VERSION_MAJOR > 1  Or (RUNTIME_VERSION_MAJOR = 1 And RUNTIME_VERSION_MINOR >= 2) Then
+	' Log clock timing information
+	c.SetAttrib "Clock.Information", Clock.Information
+#End If
+
+
+	c.Log
+End Sub
+
+Sub TrialProc_Run(c as Context)
+	
+	
+	Select Case Task.ActiveState
+		Case "Default"
+
+
+			Set Task_SlideText = CSlideText(Task.States.Item("Default").Objects(1))
+			Task_SlideText.Text = c.GetAttrib("Task")
+			Set Task_SlideText = Nothing
+	End Select
+
+	
+	Task.InputMasks.Reset
+	
+	If Keyboard.GetState() = ebStateOpen Then
+		TaskEchoClients.RemoveAll
+		
+	Set DisplayEchoClients = Display.EchoClients
+	Set DisplayEchoClient = DisplayEchoClients.CreateEchoClient("240", "300", "75%", "25%")
+	DisplayEchoClient.ForeColor = CColor("black")
+	DisplayEchoClient.BackColor = CColor("white")
+	DisplayEchoClient.BackStyle = "opaque"
+	DisplayEchoClient.BorderColor = CColor("gray")
+	DisplayEchoClient.BorderWidth = CLng("0")
+	DisplayEchoClient.FontName = "Courier New"
+	DisplayEchoClient.FontSize = "18"
+	DisplayEchoClient.FontBold = CLogical("Yes")
+	DisplayEchoClient.FontItalic = CLogical("No")
+	DisplayEchoClient.FontUnderline = CLogical("No")
+	DisplayEchoClient.FontStrikeout = CLogical("No")
+	DisplayEchoClient.ShowPositionMarker = CLogical("Yes")
+	DisplayEchoClient.ClearAfter = CLogical("No")
+	DisplayEchoClient.WordWrap = CLogical("Yes")
+
+		TaskEchoClients.Add DisplayEchoClient
+		Task.InputMasks.Add Keyboard.CreateInputMask("zcbm", "", CLng(Task.Duration), CLng("24"), ebEndResponseActionTerminate, CLogical("Yes"), "", "", "ResponseMode:AlphaNumeric ProcessBackspace:Yes", TaskEchoClients)
+
+	
+		TaskEchoClients.RemoveAll
+
+	Set DisplayEchoClients = Nothing
+	Set DisplayEchoClient = Nothing
+
+	End If
+
+	Task.Run
+	
+	c.SetAttrib Task.Name & ".OnsetDelay", Task.OnsetDelay
+	c.SetAttrib Task.Name & ".OnsetTime", Task.OnsetTime
+	c.SetAttrib Task.Name & ".DurationError", Task.DurationError
+	c.SetAttrib Task.Name & ".RTTime", Task.RTTime
+	c.SetAttrib Task.Name & ".ACC", Task.ACC
+	c.SetAttrib Task.Name & ".RT", Task.RT
+	c.SetAttrib Task.Name & ".RESP", Task.RESP
+	c.SetAttrib Task.Name & ".CRESP", Task.CRESP
+	
+	
+	blockEnd.Text = c.GetAttrib("Text")
+	
+	blockEnd.InputMasks.Reset
+	
+	If Keyboard.GetState() = ebStateOpen Then
+		blockEndEchoClients.RemoveAll
+		blockEnd.InputMasks.Add Keyboard.CreateInputMask("{SPACE}", "", CLng(blockEnd.Duration), CLng("1"), ebEndResponseActionTerminate, CLogical("Yes"), "", "", "ResponseMode:All ProcessBackspace:Yes")
+
+	
+	End If
+
+	blockEnd.Run
+	c.SetAttrib Task.Name & ".OnsetDelay", Task.OnsetDelay
+	c.SetAttrib Task.Name & ".OnsetTime", Task.OnsetTime
+	c.SetAttrib Task.Name & ".DurationError", Task.DurationError
+	c.SetAttrib Task.Name & ".RTTime", Task.RTTime
+	c.SetAttrib Task.Name & ".ACC", Task.ACC
+	c.SetAttrib Task.Name & ".RT", Task.RT
+	c.SetAttrib Task.Name & ".RESP", Task.RESP
+	c.SetAttrib Task.Name & ".CRESP", Task.CRESP
+	
+
+	c.Log
+End Sub
+
+
+
+
+
+
+
+'--------------------------------------------------------------------------
+' InitDevices
+'
+'--------------------------------------------------------------------------
+Sub InitDevices(c As Context)
+
+
+
+	SetOSThreadPriority 3
+
+
+	Set Display = New DisplayDevice
+	Display.Name = "Display"
+
+	Dim DisplayDisplayDeviceInfo As DisplayDeviceInfo
+	DisplayDisplayDeviceInfo.XRes = 640
+	DisplayDisplayDeviceInfo.YRes = 480
+	DisplayDisplayDeviceInfo.ColorDepth = 16
+	DisplayDisplayDeviceInfo.RefreshRate = 0
+	DisplayDisplayDeviceInfo.NumPages = 0
+	
+	'Load values from context if they exist
+	If c.AttribExists(Display.Name & ".XRes") Then DisplayDisplayDeviceInfo.XRes = CLng(c.GetAttrib(Display.Name & ".XRes"))
+	If c.AttribExists(Display.Name & ".YRes") Then DisplayDisplayDeviceInfo.YRes = CLng(c.GetAttrib(Display.Name & ".YRes"))
+	If c.AttribExists(Display.Name & ".ColorDepth") Then DisplayDisplayDeviceInfo.ColorDepth = CLng(c.GetAttrib(Display.Name & ".ColorDepth"))
+
+	'Open the device, unless the context values indicate otherwise
+	Dim DisplayOpen As Boolean
+	DisplayOpen = True
+	If c.AttribExists(Display.Name & ".Open") Then DisplayOpen = CLogical(c.GetAttrib(Display.Name & ".Open"))
+	If DisplayOpen = True Then
+		Display.Open DisplayDisplayDeviceInfo
+		c.SetAttrib Display.Name & ".RefreshRate", Format$(Display.CalculatedRefreshRate, "0.000")
+	End If
+
+	Set Sound = New SoundDevice
+	Sound.Name = "Sound"
+
+	Dim SoundSoundOutDeviceInfo As SoundDeviceInfo
+	SoundSoundOutDeviceInfo.Channels = 2
+	SoundSoundOutDeviceInfo.SamplesPerSecond = 22050
+	SoundSoundOutDeviceInfo.BitsPerSample = 16
+	'Load values from context if they exist
+	If c.AttribExists(Sound.Name & ".Channels") Then SoundSoundOutDeviceInfo.Channels = CLng(c.GetAttrib(Sound.Name & ".Channels"))
+	If c.AttribExists(Sound.Name & ".SamplesPerSecond") Then SoundSoundOutDeviceInfo.SamplesPerSecond = CLng(c.GetAttrib(Sound.Name & ".SamplesPerSecond"))
+	If c.AttribExists(Sound.Name & ".BitsPerSample") Then SoundSoundOutDeviceInfo.BitsPerSample = CLng(c.GetAttrib(Sound.Name & ".BitsPerSample"))
+
+	Set Keyboard = New KeyboardDevice
+	Keyboard.Name = "Keyboard"
+
+	Dim KeyboardKeyboardDeviceInfo as KeyboardDeviceInfo
+	KeyboardKeyboardDeviceInfo.CollectionMode = ebPressesOnly
+	KeyboardKeyboardDeviceInfo.CapsLock = ebCapsLockOff
+	KeyboardKeyboardDeviceInfo.NumLock = ebNumLockOn
+	'Load values from context if they exist
+	If c.AttribExists(Keyboard.Name & ".CollectionMode") Then KeyboardKeyboardDeviceInfo.CollectionMode = CLng(c.GetAttrib(Keyboard.Name & ".CollectionMode"))
+	If c.AttribExists(Keyboard.Name & ".CapsLock") Then KeyboardKeyboardDeviceInfo.CapsLock = CLng(c.GetAttrib(Keyboard.Name & ".CapsLock"))
+	If c.AttribExists(Keyboard.Name & ".NumLock") Then KeyboardKeyboardDeviceInfo.NumLock = CLng(c.GetAttrib(Keyboard.Name & ".NumLock"))
+	If c.AttribExists(Keyboard.Name & ".EmulateDeviceName") Then KeyboardKeyboardDeviceInfo.EmulateDeviceName = c.GetAttrib(Keyboard.Name & ".EmulateDeviceName")
+
+	'Open the device, unless the context values indicate otherwise
+	Dim KeyboardOpen As Boolean
+	KeyboardOpen = True
+	If c.AttribExists(Keyboard.Name & ".Open") Then KeyboardOpen = CLogical(c.GetAttrib(Keyboard.Name & ".Open"))
+	If KeyboardOpen = True Then
+		Keyboard.Open KeyboardKeyboardDeviceInfo
+	End If
+
+	Set Mouse = New MouseDevice
+	Mouse.Name = "Mouse"
+
+	Dim MouseMouseDeviceInfo as MouseDeviceInfo
+	MouseMouseDeviceInfo.OpenMode = ebMouseOpenModeDirect
+	MouseMouseDeviceInfo.CollectionMode = ebPressesOnly
+	MouseMouseDeviceInfo.ShowCursor = False
+	'Load values from context if they exist
+	If c.AttribExists(Mouse.Name & ".OpenMode") Then MouseMouseDeviceInfo.OpenMode = CLng(c.GetAttrib(Mouse.Name & ".OpenMode"))
+	If c.AttribExists(Mouse.Name & ".CollectionMode") Then MouseMouseDeviceInfo.CollectionMode = CLng(c.GetAttrib(Mouse.Name & ".CollectionMode"))
+	If c.AttribExists(Mouse.Name & ".ShowCursor") Then MouseMouseDeviceInfo.ShowCursor = CLogical(c.GetAttrib(Mouse.Name & ".ShowCursor"))
+	If c.AttribExists(Mouse.Name & ".EmulateDeviceName") Then MouseMouseDeviceInfo.EmulateDeviceName = c.GetAttrib(Mouse.Name & ".EmulateDeviceName")
+
+	'Open the device, unless the context values indicate otherwise
+	Dim MouseOpen As Boolean
+	MouseOpen = True
+	If c.AttribExists(Mouse.Name & ".Open") Then MouseOpen = CLogical(c.GetAttrib(Mouse.Name & ".Open"))
+	If MouseOpen = True Then
+		Mouse.Open MouseMouseDeviceInfo
+	End If
+
+
+	SetOSThreadPriority 0
+
+End Sub
+
+
+
+'--------------------------------------------------------------------------
+' InitObjects
+'
+'--------------------------------------------------------------------------
+Sub InitObjects(c As Context)
+
+	Set SessionProc = New Procedure
+	SessionProc.Name = "SessionProc"
+	SessionProc.Tag = ""
+	SessionProc.Subroutine = "SessionProc_Run"
+
+	Set InclInstr = New TextDisplay
+	InclInstr.Name = "InclInstr"
+	InclInstr.Tag = ""
+
+	Set InclInstrEchoClients = New EchoClientCollection
+
+	InitTextDisplayDefaults InclInstr
+
+	InclInstr.Text = "Most az lesz a feladatod, hogy a Z, C, B, M gombok segítségével mutasd meg, hogy milyen sorrendben jelentek meg a kutyák és pingvinek felváltva az elõ" &_ 
+				"zõ feladatban.\n\nA képernyõn most nem fognak megjelenni az ingerek, csak a válasz, amit begépelsz.\n\nHa készen állsz, nyomj meg egy billentyût!"
+	InclInstr.FontSize = "14"
+	InclInstr.Duration = CLng("-1")
+	InclInstr.TimingMode = ebTimingModeEvent
+	InclInstr.PreRelease = Val("0")
+
+	InclInstr.OnsetSync = 1
+	InclInstr.OffsetSync = 0
+
+	Set ExpEnd = New TextDisplay
+	ExpEnd.Name = "ExpEnd"
+	ExpEnd.Tag = ""
+
+	InitTextDisplayDefaults ExpEnd
+
+	ExpEnd.Text = "Köszönjük!\n\nVége a feladatnak."
+	ExpEnd.FontSize = "16"
+	ExpEnd.Duration = CLng("3000")
+	ExpEnd.TimingMode = ebTimingModeEvent
+	ExpEnd.PreRelease = Val("0")
+
+	ExpEnd.OnsetSync = 1
+	ExpEnd.OffsetSync = 0
+
+	Set Inclusion = New List
+	Inclusion.Name = "Inclusion"
+	Inclusion.Tag = ""
+
+	'Initialization for Inclusion
+	
+	Set Inclusion.Order = New SequentialOrder
+	Set Inclusion.Deletion = NoDeletion
+	Inclusion.ResetEveryRun = False
+
+	' Create the column headings
+	Inclusion.AddAttrib "Text"
+	Inclusion.AddAttrib "Task"
+	Inclusion.Filename = ""
+	Inclusion.LoadMethod = ebLoadMethodEmbedded
+
+	Inclusion.Load
+
+	Set Inclusion.TerminateCondition = Cycles(1)
+	Set Inclusion.ResetCondition = Samples(4)
+	Inclusion.Reset
+	
+	Set Exclusion = New List
+	Exclusion.Name = "Exclusion"
+	Exclusion.Tag = ""
+
+	'Initialization for Exclusion
+	
+	Set Exclusion.Order = New SequentialOrder
+	Set Exclusion.Deletion = NoDeletion
+	Exclusion.ResetEveryRun = False
+
+	' Create the column headings
+	Exclusion.AddAttrib "Text"
+	Exclusion.AddAttrib "Task"
+	Exclusion.Filename = ""
+	Exclusion.LoadMethod = ebLoadMethodEmbedded
+
+	Exclusion.Load
+
+	Set Exclusion.TerminateCondition = Cycles(1)
+	Set Exclusion.ResetCondition = Samples(4)
+	Exclusion.Reset
+	
+	Set TrialProc = New Procedure
+	TrialProc.Name = "TrialProc"
+	TrialProc.Tag = ""
+	TrialProc.Subroutine = "TrialProc_Run"
+
+	Set Task = New Slide
+	Task.Name = "Task"
+	Task.Tag = ""
+
+	Set TaskEchoClients = New EchoClientCollection
+	Task.Duration = CLng("-1")
+	Task.TimingMode = ebTimingModeEvent
+	Task.PreRelease = Val("0")
+
+	Task.OnsetSync = 1
+	Task.OffsetSync = 0
+
+	Set Task_State = New SlideState
+	Task_State.Name = "Default"
+
+	InitSlideStateDefaults Task_State
+
+
+	Task.States.Add Task_State, "Default"
+
+
+	Set Task_SlideText = New SlideText
+	Task_SlideText.Name = "Text1"
+
+	InitSlideTextDefaults Task_SlideText
+
+	Task_SlideText.X = "312"
+	Task_SlideText.Y = "84"
+	Task_SlideText.Width = "75%"
+	Task_SlideText.FontSize = "12"
+	Task.States.Item("Default").Objects.Add Task_SlideText, "Text1"
+	Task.ActiveState = "Default"
+
+	Set blockEnd = New TextDisplay
+	blockEnd.Name = "blockEnd"
+	blockEnd.Tag = ""
+
+	Set blockEndEchoClients = New EchoClientCollection
+
+	InitTextDisplayDefaults blockEnd
+
+	blockEnd.Duration = CLng("-1")
+	blockEnd.TimingMode = ebTimingModeEvent
+	blockEnd.PreRelease = Val("0")
+
+	blockEnd.OnsetSync = 1
+	blockEnd.OffsetSync = 0
+
+	Set ExclInstr = New Slide
+	ExclInstr.Name = "ExclInstr"
+	ExclInstr.Tag = ""
+
+	Set ExclInstrEchoClients = New EchoClientCollection
+	ExclInstr.Duration = CLng("-1")
+	ExclInstr.TimingMode = ebTimingModeEvent
+	ExclInstr.PreRelease = Val("0")
+
+	ExclInstr.OnsetSync = 1
+	ExclInstr.OffsetSync = 0
+
+	Set ExclInstr_State = New SlideState
+	ExclInstr_State.Name = "Default"
+
+	InitSlideStateDefaults ExclInstr_State
+
+
+	ExclInstr.States.Add ExclInstr_State, "Default"
+
+
+	Set ExclInstr_SlideText = New SlideText
+	ExclInstr_SlideText.Name = "Text3"
+
+	InitSlideTextDefaults ExclInstr_SlideText
+
+	ExclInstr_SlideText.Text = "A képernyõn most sem fognak megjelenni az ingerek, csak a válasz, amit begépelsz.\n\nHa készen állsz, nyomj meg egy billentyût!"
+	ExclInstr_SlideText.X = "306"
+	ExclInstr_SlideText.Y = "372"
+	ExclInstr_SlideText.Width = "73%"
+	ExclInstr_SlideText.Height = "30%"
+	ExclInstr_SlideText.FontSize = "14"
+	ExclInstr.States.Item("Default").Objects.Add ExclInstr_SlideText, "Text3"
+
+	Set ExclInstr_SlideText = New SlideText
+	ExclInstr_SlideText.Name = "Text1"
+
+	InitSlideTextDefaults ExclInstr_SlideText
+
+	ExclInstr_SlideText.Text = "Most az lesz a feladatod, hogy a Z, C, B, M gombok segítségével mutasd meg, \nhogy milyen sorrendben biztosan\nNEM\njelentek meg a kutyák és pingvinek" &_ 
+				"."
+	ExclInstr_SlideText.X = "313"
+	ExclInstr_SlideText.Y = "144"
+	ExclInstr_SlideText.Width = "79%"
+	ExclInstr_SlideText.Height = "28%"
+	ExclInstr_SlideText.FontSize = "14"
+	ExclInstr.States.Item("Default").Objects.Add ExclInstr_SlideText, "Text1"
+	ExclInstr.ActiveState = "Default"
+
+	Set TextDisplay1 = New TextDisplay
+	TextDisplay1.Name = "TextDisplay1"
+	TextDisplay1.Tag = ""
+
+	Set TextDisplay1EchoClients = New EchoClientCollection
+
+	InitTextDisplayDefaults TextDisplay1
+
+	TextDisplay1.Text = "FIGYELEM!!!\n\nMostantól más lesz a feladat.\n\nA folytatáshoz nyomd meg a SZÓKÖZT."
+	TextDisplay1.FontSize = "16"
+	TextDisplay1.Duration = CLng("-1")
+	TextDisplay1.TimingMode = ebTimingModeEvent
+	TextDisplay1.PreRelease = Val("0")
+
+	TextDisplay1.OnsetSync = 1
+	TextDisplay1.OffsetSync = 0
+
+
+End Sub
+
+
+'--------------------------------------------------------------------------
+' InitPackages
+'
+'--------------------------------------------------------------------------
+Sub InitPackages(c As Context)
+
+End Sub
+
+
+
+'--------------------------------------------------------------------------
+' InitGlobals
+'
+'--------------------------------------------------------------------------
+Sub InitGlobals(c As Context)
+
+End Sub
+
+
+
+'--------------------------------------------------------------------------
+
+
+'--------------------------------------------------------------------------
+'--------------------------------------------------------------------------
+' UnInitGlobals
+'--------------------------------------------------------------------------
+Sub UnInitGlobals()
+End Sub
+'--------------------------------------------------------------------------
+' UnInitDevices
+'--------------------------------------------------------------------------
+Sub UnInitDevices()
+	Display.Close
+	Set Display = Nothing
+	Set DisplayEchoClients = Nothing
+	Set DisplayEchoClient = Nothing
+
+	Keyboard.Close
+	Set Keyboard = Nothing
+
+	Mouse.Close
+	Set Mouse = Nothing
+
+End Sub
+
+
+'--------------------------------------------------------------------------
+'--------------------------------------------------------------------------
+' UnInitPackages
+'--------------------------------------------------------------------------
+Sub UnInitPackages()
+End Sub
+
+
+'--------------------------------------------------------------------------
+' UnInitObjects
+'
+'--------------------------------------------------------------------------
+Sub UnInitObjects()
+
+	Set SessionProc = Nothing
+
+	Set InclInstr = Nothing
+
+	Set InclInstrEchoClients = Nothing
+
+	Set ExpEnd = Nothing
+
+	Set Inclusion = Nothing
+
+	Set Exclusion = Nothing
+
+	Set TrialProc = Nothing
+
+	Set Task = Nothing
+
+	Set TaskEchoClients = Nothing
+
+	Set blockEnd = Nothing
+
+	Set blockEndEchoClients = Nothing
+
+	Set ExclInstr = Nothing
+
+	Set ExclInstrEchoClients = Nothing
+
+	Set TextDisplay1 = Nothing
+
+	Set TextDisplay1EchoClients = Nothing
+
+
+End Sub
+
+
+'--------------------------------------------------------------------------
+' Main
+'
+'--------------------------------------------------------------------------
+Sub Main()
+
+	' Create and initialize the default context, data file,
+	' and provide global access to the context.
+	Dim c As Context
+	Set c = New Context
+	Set c.DataFile = New DataFile
+	c.PushNewFrame
+	Set ebContext = c
+
+	' Set the log level names
+	c.SetLogLevelName 1, "Session"
+	c.SetLogLevelName 2, "Block"
+	c.SetLogLevelName 3, "Trial"
+	c.SetLogLevelName 4, "SubTrial"
+	c.SetLogLevelName 5, "LogLevel5"
+	c.SetLogLevelName 6, "LogLevel6"
+	c.SetLogLevelName 7, "LogLevel7"
+	c.SetLogLevelName 8, "LogLevel8"
+	c.SetLogLevelName 9, "LogLevel9"
+	c.SetLogLevelName 10, "LogLevel10"
+
+	' Set standard logging items
+	ebContext.SetAttrib "Experiment", "explicit_teszt"
+	ebContext.SetAttrib "SessionDate", Date$
+	ebContext.SetAttrib "SessionTime", Time$
+
+	'Initialize global variables for packages
+	InitGlobals c
+
+	CreateDefaultPort
+
+	If Basic.OS = ebWin32 Then
+		WinActivate "E-Run Experiment Window"
+	End If
+
+	' Get the StartupInfo
+
+	' Set the defaults for all of the StartupInfo
+	If Not c.AttribExists("Name") Then c.SetAttrib "Name", ""
+	If Not c.AttribExists("Age") Then c.SetAttrib "Age", "0"
+	If Not c.AttribExists("Sex") Then c.SetAttrib "Sex", "nõ"
+	If Not c.AttribExists("Subject") Then c.SetAttrib "Subject", "1"
+	If Not c.AttribExists("Session") Then c.SetAttrib "Session", "1"
+	If Not c.AttribExists("ResearcherID") Then c.SetAttrib "ResearcherID", ""
+
+	' Determine if StartupInfo.UseDefaults exists and is True/False to override prompts for StartupInfo parameters
+	Dim bStartupInfoUseDefaults As Boolean
+	bStartupInfoUseDefaults = False
+	If c.AttribExists("StartupInfo.UseDefaults") Then bStartupInfoUseDefaults = CLogical(c.GetAttrib("StartupInfo.UseDefaults"))
+	If Not bStartupInfoUseDefaults Then
+
+		Dim vAnswer As Variant
+StartupInfo_Begin:
+
+StartupInfoPrompt_Name:
+		vAnswer = AskBox("A vizsgálati személy neve:", c.GetAttrib("Name"))
+		If Not IsEmpty(vAnswer) then
+			If Len(CStr(vAnswer)) > 255 Then
+			MsgBox "The length for Name must be not be greater than 255"
+				GoTo StartupInfoPrompt_Name
+			End If
+		Else
+			GoTo ExperimentAbort
+		End if
+
+		c.SetAttrib "Name", CStr(vAnswer)
+
+StartupInfoPrompt_Age:
+		vAnswer = AskBox("A vizsgálati személy életkora:", c.GetAttrib("Age"))
+		If Not IsEmpty(vAnswer) then
+			If Not IsNumeric(vAnswer) then
+				MsgBox "Please enter an integer value"
+				GoTo StartupInfoPrompt_Age
+			ElseIf CLng(vAnswer) < 0 Then
+				MsgBox "The value for Age must not be less than 0"
+				GoTo StartupInfoPrompt_Age
+			ElseIf CLng(vAnswer) > 150 Then
+				MsgBox "The value for Age must be not be greater than 150"
+				GoTo StartupInfoPrompt_Age
+			End If
+		Else
+			GoTo ExperimentAbort
+		End if
+
+		c.SetAttrib "Age", CStr(vAnswer)
+
+StartupInfoPrompt_Sex:
+		Dim arrayChoicesSex(2)
+		arrayChoicesSex(0) = "nõ"
+		arrayChoicesSex(1) = "férfi"
+		vAnswer = SelectBox(, "A vizsgálati személy neme:", arrayChoicesSex)
+		If vAnswer >= 0 then
+			c.SetAttrib "Sex", arrayChoicesSex(vAnswer)
+		Else
+			GoTo ExperimentAbort
+		End If
+
+StartupInfoPrompt_Subject:
+		vAnswer = AskBox("A vizsgálati személy száma:", c.GetAttrib("Subject"))
+		If Not IsEmpty(vAnswer) then
+			If Not IsNumeric(vAnswer) then
+				MsgBox "Please enter an integer value"
+				GoTo StartupInfoPrompt_Subject
+			ElseIf CLng(vAnswer) < 0 Then
+				MsgBox "The value for Subject must not be less than 0"
+				GoTo StartupInfoPrompt_Subject
+			ElseIf CLng(vAnswer) > 32767 Then
+				MsgBox "The value for Subject must be not be greater than 32767"
+				GoTo StartupInfoPrompt_Subject
+			End If
+		Else
+			GoTo ExperimentAbort
+		End if
+
+		c.SetAttrib "Subject", CStr(vAnswer)
+
+StartupInfoPrompt_Session:
+		vAnswer = AskBox("Hanyadik adatfelvétel?", c.GetAttrib("Session"))
+		If Not IsEmpty(vAnswer) then
+			If Not IsNumeric(vAnswer) then
+				MsgBox "Please enter an integer value"
+				GoTo StartupInfoPrompt_Session
+			ElseIf CLng(vAnswer) < 1 Then
+				MsgBox "The value for Session must not be less than 1"
+				GoTo StartupInfoPrompt_Session
+			ElseIf CLng(vAnswer) > 32767 Then
+				MsgBox "The value for Session must be not be greater than 32767"
+				GoTo StartupInfoPrompt_Session
+			End If
+		Else
+			GoTo ExperimentAbort
+		End if
+
+		c.SetAttrib "Session", CStr(vAnswer)
+
+StartupInfoPrompt_ResearcherID:
+		vAnswer = AskBox("A vizsgálatvezetõ neve:", c.GetAttrib("ResearcherID"))
+		If Not IsEmpty(vAnswer) then
+			If Len(CStr(vAnswer)) > 255 Then
+			MsgBox "The length for ResearcherID must be not be greater than 255"
+				GoTo StartupInfoPrompt_ResearcherID
+			End If
+		Else
+			GoTo ExperimentAbort
+		End if
+
+		c.SetAttrib "ResearcherID", CStr(vAnswer)
+
+		' Display the summary
+		Dim strSummary As String
+		strSummary = "Name:    " & c.GetAttrib("Name") & "\n"
+		strSummary = strSummary & "Age:    " & c.GetAttrib("Age") & "\n"
+		strSummary = strSummary & "Sex:    " & c.GetAttrib("Sex") & "\n"
+		strSummary = strSummary & "Subject:    " & c.GetAttrib("Subject") & "\n"
+		strSummary = strSummary & "Session:    " & c.GetAttrib("Session") & "\n"
+		strSummary = strSummary & "ResearcherID:    " & c.GetAttrib("ResearcherID") & "\n"
+		strSummary = strSummary & "\nContinue with the above startup info?"
+
+		Dim nSummaryAnswer As Integer
+		nSummaryAnswer = MsgBox(strSummary, ebYesNoCancel + ebQuestion, "Summary of Startup Info")
+		If nSummaryAnswer = ebNo Then
+				GoTo StartupInfo_Begin
+		ElseIf nSummaryAnswer = ebCancel Then
+				GoTo ExperimentAbort
+		End If
+
+	End If
+
+
+	'If the attribute Clock.Scale.Override exists
+	'  then use it for to set the Clock.Scale value
+	If c.AttribExists("Clock.Scale.Override") Then
+		Clock.Scale = CDbl(c.GetAttrib("Clock.Scale.Override"))
+	End If
+
+	' Set the Filenames for the data files
+	Dim strFilenameRecovery As String
+	Dim strFilenameEDAT As String
+
+	'If the attribute DataFile.Filename.Override exists
+	'  then use it for the .txt and .edat filenames
+	If c.AttribExists("DataFile.Filename.Override") Then
+
+		' Set the default Data Filename
+		strFilenameRecovery = CStr(c.GetAttrib("DataFile.Filename.Override")) & ".txt"
+		strFilenameEDAT = CStr(c.GetAttrib("DataFile.Filename.Override")) & ".edat"
+
+	Else
+
+		' Set the default Data Filename
+		strFilenameRecovery = CStr(c.GetAttrib("Experiment")) & "-" & CStr(c.GetAttrib("Subject")) & "-" & CStr(c.GetAttrib("Session")) & ".txt"
+		strFilenameEDAT = CStr(c.GetAttrib("Experiment")) & "-" & CStr(c.GetAttrib("Subject")) & "-" & CStr(c.GetAttrib("Session")) & ".edat"
+
+	End If
+
+	'Set the name of the data file
+	c.DataFile.Filename = strFilenameRecovery
+
+	' If we are logging data, then prompt to overwrite the data file if it exists
+	If CLng(c.GetAttrib("Subject")) <> 0 Then
+		If FileExists(c.DataFile.Filename) Or FileExists(strFilenameEDAT) Then
+			If ebYes <> MsgBox("WARNING: The data file and/or recovery file already exists:\nFILE: " & c.DataFile.Filename & "\n\nDo you want to overwrite?", ebYesNo + ebQuestion) Then
+				GoTo ExperimentAbort
+			End If
+		End If
+	End If
+
+	' Set defaults for RandomSeed and GroupNumber if StartupInfo did not assign their values
+	If Not c.AttribExists("RandomSeed") Then c.SetAttrib "RandomSeed", PRNG.GetSeed()
+	If Not c.AttribExists("Group") Then c.SetAttrib "Group", "1"
+
+	'Set the random seed
+	Randomize CLng(c.GetAttrib("RandomSeed"))
+
+	' Initialize all system devices, packages, and objects
+	InitDevices c
+	InitPackages c
+	InitObjects c
+
+	' If we are logging data, then open the datafile
+	If CLng(c.GetAttrib("Subject")) <> 0 Then
+		c.DataFile.Open
+		c.LogHeader
+	End If
+
+
+
+#If RUNTIME_VERSION_MAJOR > 1  Or (RUNTIME_VERSION_MAJOR = 1 And RUNTIME_VERSION_MINOR >= 2) Then
+	' Log clock timing information
+	c.SetAttrib "Clock.Information", Clock.Information
+#End If
+
+	' Start the running of the Experiment
+	SessionProc.Run c
+
+	' Clean up the context and close the datafile
+	If CLng(c.GetAttrib("Subject")) <> 0 Then
+		c.DataFile.Close
+		' Attempt to convert the recovery file into a data file
+		Dim nConvert As Long
+		nConvert = c.DataFile.Convert(ebProgressSimple)
+		If nConvert = 0 Then
+			' Settings in E-Studio are set to not remove E-Recovery file
+		Else
+			' The datafile failed to convert!
+			MsgBox "ERROR: The datafile did not convert!\nFILE: " & c.DataFile.Filename & "\n\nIt is recommended that you recover your data with the E-Recovery utility"
+			MsgBox c.DataFile.GetLastErrorMessage()
+		End If
+	End If
+ExperimentFinish:
+
+	UnInitObjects
+
+	UnInitPackages
+	UnInitDevices
+
+	UnInitGlobals
+
+ExperimentAbort:
+
+	' Clean up the context
+	c.PopFrame
+	Set c = Nothing
+	Set ebContext = Nothing
+
+	DestroyDefaultPort
+
+End Sub
+
+
+[DataSection_Inclusion(1)]
+Weight	Nested	Procedure	Text	Task
+1		TrialProc	Az 1. blokknak vége.\\n\\nA következõ blokk megkezdéséhez nyomd meg a SZÓKÖZ billentyût.	Most írd be a Z, C, B, M gombok segítségével, hogy milyen sorrendben jelentek meg a kutyák és pingvinek:
+1		TrialProc	A 2. blokknak vége.\\n\\nA következõ blokk megkezdéséhez nyomd meg a SZÓKÖZ billentyût.	Most írd be a Z, C, B, M gombok segítségével, hogy milyen sorrendben jelentek meg a kutyák és pingvinek:
+1		TrialProc	A 3. blokknak vége.\\n\\nA következõ blokk megkezdéséhez nyomd meg a SZÓKÖZ billentyût.	Most írd be a Z, C, B, M gombok segítségével, hogy milyen sorrendben jelentek meg a kutyák és pingvinek:
+1		TrialProc	A 4. blokknak vége.\\n\\nA folytatáshoz nyomd meg a SZÓKÖZ billentyût.	Most írd be a Z, C, B, M gombok segítségével, hogy milyen sorrendben jelentek meg a kutyák és pingvinek:\0
+
+[DataSection_Exclusion(1)]
+Weight	Nested	Procedure	Text	Task
+1		TrialProc	Az 1. blokknak vége.\\n\\nA következõ blokk megkezdéséhez nyomd meg a SZÓKÖZ billentyût.	Most írd be a Z, C, B, M gombok segítségével, hogy milyen sorrendben biztosan NEM jelentek meg a kutyák és pingvinek:\\n\\n(mindegyik gombot fel kell használni!)
+1		TrialProc	A 2. blokknak vége.\\n\\nA következõ blokk megkezdéséhez nyomd meg a SZÓKÖZ billentyût.	Most írd be a Z, C, B, M gombok segítségével, hogy milyen sorrendben biztosan NEM jelentek meg a kutyák és pingvinek:\\n\\n(mindegyik gombot fel kell használni!)
+1		TrialProc	A 3. blokknak vége.\\n\\nA következõ blokk megkezdéséhez nyomd meg a SZÓKÖZ billentyût.	Most írd be a Z, C, B, M gombok segítségével, hogy milyen sorrendben biztosan NEM jelentek meg a kutyák és pingvinek:\\n\\n(mindegyik gombot fel kell használni!)
+1		TrialProc	A 4. blokknak vége.\\n\\nA folytatáshoz nyomd meg a SZÓKÖZ billentyût.	Most írd be a Z, C, B, M gombok segítségével, hogy milyen sorrendben biztosan NEM jelentek meg a kutyák és pingvinek:\\n\\n(mindegyik gombot fel kell használni!)\0
