@@ -90,4 +90,18 @@ For installation see the "Installation" section.
 The Eprime2 files for the experiment can be found in the `Experiment` folder.
 
 
-
+## Generate figures
+In the following, I will assume you are located in the root directory of this repository.
+1. Download dataset from [figshare](www.figshare.com) into `Data` folder.
+1. Checkout this repository.
+1. Create output folder for figures: `mkdir Figures`
+1. Run the following docker container with a previously installed R environment and set memory limit to 3G (if docker on your machine is setup to limit 2GB of memory for each container, you need to extend that.)
+    ```
+    docker run --rm -it \
+        -v $(pwd)/R:/asrt-beamsampling/R \
+        -v $(pwd)/Data:/data \
+        -v $(pwd)/Figures:/asrt-beamsampling/Figures/figlist \
+        --memory="3g" \
+        -e DATA_DIR=/data \
+        mzperix/asrt-beamsampling-r:0.1.0
+    ```
