@@ -32,3 +32,4 @@ log
 *.pyc
 *.log
 *.zip
+*.DS_Store
