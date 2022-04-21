@@ -92,7 +92,7 @@ The Eprime2 files for the experiment can be found in the `Experiment` folder.
 
 ## Generate figures
 In the following, I will assume you are located in the root directory of this repository.
-1. Download dataset from [figshare](www.figshare.com) into `Data` folder.
+1. Download dataset from [figshare](https://figshare.com/articles/dataset/Tracking_the_contribution_of_inductive_bias_to_individualized_internal_models_--_figure_datasets/19620285) into `Data` folder.
 1. Checkout this repository.
 1. Create output folder for figures: `mkdir Figures`
 1. Run the following docker container with a previously installed R environment and set memory limit to 3G (if docker on your machine is setup to limit 2GB of memory for each container, you need to extend that.)
