@@ -119,7 +119,7 @@ final_figS11 <- fig_prior_predictive_checks(artificial_asrt_params)
 output_path <- "Figures/figlist"
 fig_sizes <- c(
     fig2c = c(width = 3, height = 5),
-    fig4 = c(width = 7, height = 3),
+    fig4 = c(width = 7, height = 2.5),
     fig5 = c(width = 5.5, height = 10),
     fig5e = c(width = 8.5, height = 5),
     fig6a = c(width = 7.5, height = 3.5),
