@@ -12,12 +12,13 @@ source("R/Fun/prediction_spaces.R")
 source("R/Fun/diagnostic_figures.R")
 source("R/Fun/plot/fingerprint.R")
 source("R/Fun/plot/prior_predictive_checks.R")
+source("R/Fun/plot/artificial_performance.R")
 
 ####################
 ###  INPUT DATA  ###
 ####################
 
-input_dir <- Sys.getenv("DATA_DIR")
+input_dir <- Sys.getenv("DATA_DIR", "Python/Output/832a60f")
 filename_rt_prediction_data <- "866066d_LEARNING_CURVES_elarasztas_pre_submission"
 filename_probability_prediction_data <- "866066d_PREDICTED_PROBABILITIES_elarasztas_pre_submission"
 filename_across_sequences_prediction_data <- "866066d_ACROSS_SEQUENCES_elarasztas_pre_submission"
@@ -44,6 +45,20 @@ residual_data <- load_data(filename_residual_data)
 rt_cloud_data <- load_data(filename_rt_cloud_data)
 fingerprint_data <- load_data(filename_fingerprint_data)
 artificial_asrt_params <- read_csv("artificial_asrt_params")
+
+# ARTIFICIAL PLOT INPUTS
+artificial_generation_data <- read.csv('Data/artificial_asrt_params.csv') %>%
+  mutate(participant_test=0:80,
+         model=factor(internal_model_steps, labels=c("Early","Middle","Late")),
+         noise_level=tau0*sigma/mu)
+
+artificial_performance_data <- read.csv('Python/Output/832a60f/84cabc2_PERFORMANCE_artificial_asrt.csv')
+
+artificial_pred_prob_data <- read.csv('Python/Output/832a60f/84cabc2_PRED_PROBS_artificial_asrt.csv')
+
+artificial_original_pred_probs <- read_csv("Data/artificial_asrt_original_pred_probs_all_subject.csv")
+
+
 ######################
 ### CREATE FIGURES ###
 ######################
@@ -79,6 +94,7 @@ final_fig7bde <- fig4b(ihmm_markov_triplet_data, rt_prediction_data)
 final_fig7c <- fig_predictability(rt_prediction_data)
 
 ### Supplementary ###
+final_figS3bc <- artificial_performance_plot(artificial_generation_data, artificial_performance_data, artificial_pred_prob_data, artificial_original_pred_probs)
 final_figS4 <- figure_residuals(residual_data)
 final_figS5 <- fig2b(rt_prediction_data, 119, rt_cloud_data)
 final_figS6 <- fingerprint_data %>%
