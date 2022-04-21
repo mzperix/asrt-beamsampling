@@ -13,6 +13,7 @@ source("R/Fun/diagnostic_figures.R")
 source("R/Fun/plot/fingerprint.R")
 source("R/Fun/plot/prior_predictive_checks.R")
 source("R/Fun/plot/artificial_performance.R")
+source("R/Fun/plot/rt_sd.R")
 
 ####################
 ###  INPUT DATA  ###
@@ -44,19 +45,19 @@ probability_prediction_cross_entropy_data <- load_data(filename_probability_pred
 residual_data <- load_data(filename_residual_data)
 rt_cloud_data <- load_data(filename_rt_cloud_data)
 fingerprint_data <- load_data(filename_fingerprint_data)
-artificial_asrt_params <- read_csv("artificial_asrt_params")
+artificial_asrt_params <- load_data("artificial_asrt_params")
 
 # ARTIFICIAL PLOT INPUTS
-artificial_generation_data <- read.csv('Data/artificial_asrt_params.csv') %>%
+artificial_generation_data <- load_data("artificial_asrt_params") %>%
   mutate(participant_test=0:80,
          model=factor(internal_model_steps, labels=c("Early","Middle","Late")),
          noise_level=tau0*sigma/mu)
 
-artificial_performance_data <- read.csv('Python/Output/832a60f/84cabc2_PERFORMANCE_artificial_asrt.csv')
+artificial_performance_data <- load_data("84cabc2_PERFORMANCE_artificial_asrt")
 
-artificial_pred_prob_data <- read.csv('Python/Output/832a60f/84cabc2_PRED_PROBS_artificial_asrt.csv')
+artificial_pred_prob_data <- load_data("84cabc2_PRED_PROBS_artificial_asrt")
 
-artificial_original_pred_probs <- read_csv("Data/artificial_asrt_original_pred_probs_all_subject.csv")
+artificial_original_pred_probs <- load_data("artificial_asrt_original_pred_probs_all_subject")
 
 
 ######################
@@ -95,6 +96,7 @@ final_fig7c <- fig_predictability(rt_prediction_data)
 
 ### Supplementary ###
 final_figS3bc <- artificial_performance_plot(artificial_generation_data, artificial_performance_data, artificial_pred_prob_data, artificial_original_pred_probs)
+final_figS3d <- rt_sd(rt_prediction_data)
 final_figS4 <- figure_residuals(residual_data)
 final_figS5 <- fig2b(rt_prediction_data, 119, rt_cloud_data)
 final_figS6 <- fingerprint_data %>%
@@ -127,6 +129,8 @@ fig_sizes <- c(
     fig7a = c(width = 5.5, height = 3.0),
     fig7bde = c(width = 5.5, height = 8.5),
     fig7c = c(width = 5.5, height = 4.0),
+    figS3bc = c(width = 10.0, height = 6.0),
+    figS3d = c(width = 5.5, height = 4.5),
     figS4 = c(width = 8.5, height = 8.5),
     figS5 = c(width = 11.0, height = 6.0),
     figS6 = c(width = 7.0, height = 14.0),
@@ -160,6 +164,8 @@ export_fig(filename_rt_prediction_data, "fig7a", final_fig7a)
 export_fig(filename_rt_prediction_data, "fig7bde", final_fig7bde)
 export_fig(filename_rt_prediction_data, "fig7c", final_fig7c)
 
+export_fig("", "figS3bc", final_figS3bc)
+export_fig(filename_rt_prediction_data, "figS3d", final_figS3d)
 export_fig(filename_residual_data, "figS4", final_figS4)
 export_fig(filename_rt_prediction_data, "figS5", final_figS5)
 export_fig(filename_fingerprint_data, "figS6", final_figS6)

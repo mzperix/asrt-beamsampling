@@ -92,8 +92,8 @@ artificial_performance_plot <- function(artificial_generation_data, performance_
     #ggsave('Figures/synthetic_performance.pdf', width=5, height=4.3)
 
   ggdraw() +
-      draw_plot(a, x=0, y=0, width=0.4, height=1) +
-      draw_plot(b, x=0.4, y=0, width=0.6, height=1)
+      draw_plot(a, x=0, y=0, width=0.44, height=1) +
+      draw_plot(b, x=0.44, y=0, width=0.56, height=1)
       # draw_label("", x=0, y=1, hjust=-4, vjust=1) +
       # draw_label("B", x=0.4, y=1, hjust=-1, vjust=1) +
 }
